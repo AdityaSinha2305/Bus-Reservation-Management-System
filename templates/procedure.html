@@ -1,0 +1,51 @@
+{% extends 'base.html' %}           
+{% block title %}PROCEDURE{%  endblock title %}
+{% block body  %}
+
+<br>
+{% with messages=get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      {{message}}
+
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    
+  </div>
+
+
+
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+<br>
+    <div class="container mt-4">
+    <table class="table table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">BUS NAME</th>
+            <th scope="col">SOURCE</th>
+            <th scope="col">DESTINATION</th>
+            <th scope="col">Depature_Time</th>
+            <th scope="col">Arrival_Time</th>
+          </tr>
+        </thead>
+        <tbody>
+        
+        {% for post in posts %}
+            <tr>
+            <th scope="row">{{post.busname}}</th>
+            <td>{{post.source}}</td>
+            <td>{{post.dest}}</td>
+            <td>{{post.dept}}</td>
+            <td>{{post.arrival}}</td>
+          </tr>
+        {% endfor %}
+
+
+        </tbody>
+      </table>    
+    </div>
+    
+{% endblock body  %}

@@ -1,0 +1,123 @@
+{% extends 'base.html' %}           
+{% block title %}BUS BOOKING DETAILS{%  endblock title %}
+{% block body  %}
+
+
+<div class="container">
+
+    <div class="row">
+    
+    <div class="col-md-4"></div>
+
+    <div class="col-md-4 mt-3">
+
+    {% with messages=get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{message}}
+
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      
+    </div>
+
+    
+    
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+
+
+    <h4 class="text-center text-white bg-primary">Bus Booking</h4>
+    
+    <br>
+
+    <form action="/buses" method="POST">
+
+    
+        <div class="form-group mt-2">         
+                              
+        <select class="form-control" id="busname" name="busname"  required>
+
+                <option selected>Bus Name</option>
+                <option value="Volvo">Volvo</option>
+                <option value="Tata Motors">Tata Motors</option>
+                <option value="Bharat Benz">Bharat Benz</option>
+         
+        </select>
+    </div>
+    
+    
+    <div class="form-group mt-3">         
+                              
+        <select class="form-control" id="bustype" name="bustype"  required>
+
+                <option selected>Bus Type</option>
+                <option value="AC">AC</option>
+                <option value="Non-AC">Non-AC</option>
+         
+        </select>
+    </div>
+    
+    <div class="form-group mt-3">         
+                              
+        <select class="form-control" id="source" name="source"  required>
+
+                <option selected>Source</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Mumbai">Mumbai</option>
+         
+        </select>
+    </div>
+    
+
+
+    <div class="form-group mt-3">         
+                              
+        <select class="form-control" id="dest" name="dest"  required>
+
+                <option selected>Destination</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Mumbai">Mumbai</option>
+         
+        </select>
+    </div>
+
+
+    <div class="form-group mt-3">
+        <label for="dept" class="form-label">Departure Time</label>
+        <input type="time" class="form-control" name="dept" placeholder="Time" required>
+      
+    </div>
+
+
+    <div class="form-group mt-3">
+        <label for="arrival" class="form-label">Arrival Time</label>
+        <input type="time" class="form-control" name="arrival" placeholder="Time" required>
+      
+    </div>
+
+    <div class="form-group mt-3">
+        <label for="price" class="form-label">Price</label>
+        <input type="text" class="form-control" id="price" name="price" required>
+      </div>
+
+    <div class="form-group mt-3">
+    <button type="submit" class="btn btn-warning btn-sm btn-block">Book</button>
+    </div>
+
+    </form>
+    
+    </div>
+    <div class="col-md-4"></div>
+    
+    </div>
+    
+    </div>
+    
+
+
+{% endblock body  %}

@@ -1,0 +1,63 @@
+{% extends 'base.html' %}           
+{% block title %}BUS DETAILS{%  endblock title %}
+{% block body  %}
+
+<br>
+{% with messages=get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      {{message}}
+
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    
+  </div>
+
+
+
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+<br>
+    <table class="table table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Bus_No</th>
+            <th scope="col">Bus_Name</th>
+            <th scope="col">Bus_Company</th>
+            <th scope="col">Bus_Type</th>
+            <th scope="col">Source</th>
+            <th scope="col">Destination</th>
+            <th scope="col">Depature_Time</th>
+            <th scope="col">Arrival_Time</th>
+            <th scope="col">Price</th>
+            <th scope="col">Book</th>
+          </tr>
+        </thead>
+        <tbody>
+        
+        {% for post in query %}
+            <tr>
+            <th scope="row">{{post.busno}}</th>
+            <td>{{post.busname}}</td>
+            <td>{{post.buscomp}}</td>
+            <td>{{post.bustype}}</td>
+            <td>{{post.source}}</td>
+            <td>{{post.dest}}</td>
+            <td>{{post.dept}}</td>
+            <td>{{post.arrival}}</td>
+            <td>{{post.price}}</td>
+            <td><a href="/finalbooking/{{post.busno}}"><button onclick="return confirm('Are you sure want to Book Your Ticket?');" class="btn btn-success">Book</button></a></td>
+
+          </tr>
+          <tr>
+        {% endfor %}
+
+
+        </tbody>
+      </table>    
+
+    
+{% endblock body  %}

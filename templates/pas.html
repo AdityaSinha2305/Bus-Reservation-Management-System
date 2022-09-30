@@ -1,0 +1,54 @@
+{% extends 'base.html' %}           
+{% block title %}FINAL PASSENGER DETAILS{%  endblock title %}
+{% block body  %}
+
+<br>
+{% with messages=get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      {{message}}
+
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    
+  </div>
+
+
+
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+<br>
+    <table class="table table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Pas_Uid</th>
+            <th scope="col">Pas_EId</th>
+            <th scope="col">Pas_Name</th>
+            <th scope="col">Pas_Age</th>
+            <th scope="col">Pas_Gender</th>
+            <th scope="col">Pas_DOJ</th>
+            <th scope="col">Pas_Number</th>
+        <tbody>
+        
+        {% for post in query %}
+            <tr>
+            <th scope="row">{{post.id}}</th>
+            <td>{{post.pemail}}</td>
+            <td>{{post.pfname}} {{post.plname}}</td>
+            <td>{{post.age}}</td>
+            <td>{{post.gender}}</td>
+            <td>{{post.doj}}</td>
+            <td>{{post.pnumber}}</td>
+          </tr>
+          <tr>
+        {% endfor %}
+
+
+        </tbody>
+      </table>    
+
+    
+{% endblock body  %}
