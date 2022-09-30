@@ -7,9 +7,6 @@ from flask_login import login_required,current_user
 from flask_mail import Mail
 import json
 
-
-
-
 local_server = True
 app = Flask(__name__)
 app.secret_key = ''          # add any secret_key
