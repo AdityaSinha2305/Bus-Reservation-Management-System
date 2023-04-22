@@ -25,7 +25,7 @@ def load_user(user_id):
 
 
 #app.config['SQLALCHEMY_DATABASE_URL'] = 'mysql://username:password@localhost/database_table_name'              
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/bms'                                            
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/database'                                            
 db=SQLAlchemy(app)          #passing app config to database
 
 
