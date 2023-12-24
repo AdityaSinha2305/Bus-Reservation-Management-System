@@ -15,10 +15,16 @@ Bus Reservation Management System is a web application designed to simplify the 
 - Xampp (For local server)
 - VS Code (IDE)
 
+## Requirements
+- VS Code
+- Xampp control panel
+
 ## Getting Started
-- Install the required library
-- Start the local server from xampp
+- Clone the respository
+- Install the python libraries used in this project
+- Start the apache server and mysql from xampp
 - Run the python file in the IDE
+- Click on the link obtained in the terminal or open the flask default localhost
 
 
 
